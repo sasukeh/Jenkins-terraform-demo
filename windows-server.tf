@@ -1,3 +1,10 @@
+# Before executing this tf script, you should do following procedure.
+# 1. create resource_group
+# 2. az login
+# 3. az account list -o table
+# 4. az account set -s <subscription ID>
+#
+
 resource "azurerm_virtual_machine" "virtual_machine" {
   name                  = "test"
 #  location              = "${var.location}"
