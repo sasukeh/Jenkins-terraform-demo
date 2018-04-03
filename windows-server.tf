@@ -14,6 +14,11 @@ resource "azurerm_resource_group" "test" {
   location = "Japan East"
 }
 
+
+identity = {
+    type = "SystemAssigned"
+}
+
 resource "azurerm_virtual_network" "test" {
   name                = "acceptanceTestVirtualNetwork1"
   address_space       = ["10.0.0.0/16"]
