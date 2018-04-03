@@ -72,7 +72,7 @@ resource "azurerm_virtual_machine" "virtual_machine" {
   os_profile {
     computer_name  = "test"
     admin_username = "username"
-    admin_password = "password"
+    admin_password = "password...123"
   }
 
   os_profile_windows_config {
