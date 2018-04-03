@@ -44,6 +44,10 @@ resource "azurerm_network_interface" "test" {
   }
 }
 
+#-------------
+# VM Configuration
+#-------------
+
 resource "azurerm_virtual_machine" "virtual_machine" {
   name                  = "test"
   location              = "${azurerm_resource_group.test.location}"
