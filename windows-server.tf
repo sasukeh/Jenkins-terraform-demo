@@ -10,7 +10,7 @@
 # Network Configuration
 # -----
 resource "azurerm_resource_group" "test" {
-  name     = "acceptanceTestResourceGroup1"
+  name     = "test"
   location = "Japan East"
 }
 
@@ -47,7 +47,7 @@ resource "azurerm_network_interface" "test" {
 resource "azurerm_virtual_machine" "virtual_machine" {
   name                  = "test"
   location              = "${azurerm_resource_group.test.location}"
-  resource_group_name   = "test"
+  resource_group_name   = "${azurerm_resource_group.test.name}"
   network_interface_ids = ["${azurerm_network_interface.test.id}"]
   vm_size               = "Standard_DS1_v2"
 
@@ -84,7 +84,7 @@ resource "azurerm_virtual_machine" "virtual_machine" {
 resource "azurerm_virtual_machine_extension" "virtual_machine_extension" {
   name                 = "test"
   location              = "${azurerm_resource_group.test.location}"
-  resource_group_name  = "test"
+  resource_group_name  = "${azurerm_resource_group.test.name}"
   virtual_machine_name = "${azurerm_virtual_machine.virtual_machine.name}"
   publisher            = "Microsoft.ManagedIdentity"
   type                 = "ManagedIdentityExtensionForWindows"
